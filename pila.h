@@ -66,7 +66,7 @@ void pop(Pila *pila) {
 }
 
 /* Imprimir cola */
-void print_pila(Pila *pila){
+void print_pila(Pila *pila, int valor_ruta_guardada){
 	Nodo *auxiliar;
 	auxiliar = pila->inicio;
   
@@ -76,17 +76,43 @@ void print_pila(Pila *pila){
     //printf("\nMostrando pila completa:\n");
   }  
   int costo_total=0;
+  
+  
+  
   while (auxiliar!=NULL) {
     costo_total=costo_total + auxiliar->costo;
-    guarda_ruta_mejor(auxiliar->nombre,auxiliar->costo);
-    printf("nombre: %s", auxiliar->nombre);
-    printf(" costo: %d", auxiliar->costo);
-    printf("\n");
     auxiliar = auxiliar->siguiente;
   }
-  printf("costo total: %d", costo_total);
-  guarda_ruta_mejor("R",costo_total);
+
+  printf("costo_total: %i", costo_total);
+  printf("valor_ruta_guardada: %i", valor_ruta_guardada);
   printf("\n");
+
+  if (costo_total < valor_ruta_guardada){
+       
+    abrir_archivo_resultado();
+    
+    auxiliar = pila->inicio;
+    while (auxiliar!=NULL) {
+      //costo_total=costo_total + auxiliar->costo;
+      //if (costo_total < valor_ruta_guardada){
+        guarda_ruta_mejor(auxiliar->nombre,auxiliar->costo);
+      //}  
+      printf("nombre: %s", auxiliar->nombre);
+      printf(" costo: %d", auxiliar->costo);
+      printf("\n");
+      auxiliar = auxiliar->siguiente;
+    }
+    
+    guarda_ruta_mejor("R",costo_total);
+    printf("\n");
+
+    cerrar_archivo_resultado();
+  
+  }
+  
+
+  
 }
 
 

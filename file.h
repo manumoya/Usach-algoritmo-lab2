@@ -1,5 +1,6 @@
 FILE *itinerario;
 FILE *arch_resultado;
+FILE *arch_resultado_lectura;
 char nombre_archivo[] = "itinerario.txt";
 char archivo_resultado[] = "resultado1.txt";
 
@@ -12,12 +13,21 @@ void abrir_archivo(){
   	}
 }
 
+void cerrar_archivo(){
+	if (fclose(itinerario)!=0) {
+      printf("No se ha podido cerrar el fichero %s.\n", nombre_archivo);
+   
+    }else{
+    	fclose(itinerario);
+  		printf("Archivo cerrado %s.\n", nombre_archivo);
+  	}
+}
 
 void abrir_archivo_resultado(){
 	if ( (arch_resultado = fopen(archivo_resultado, "wt") ) == NULL){
     	printf("No se ha podido abrir el archivo %s.\n", archivo_resultado);
   	}else{
-  		printf("Archivo abierto %s.\n", archivo_resultado);
+  		//printf("Archivo abierto %s.\n", archivo_resultado);
   	}
 }
 
@@ -27,17 +37,25 @@ void cerrar_archivo_resultado(){
    
     }else{
     	fclose(arch_resultado);
-  		printf("Archivo cerrado %s.\n", archivo_resultado);
+  		//printf("Archivo cerrado %s.\n", archivo_resultado);
   	}
 }
 
-void cerrar_archivo(){
-	if (fclose(itinerario)!=0) {
-      printf("No se ha podido cerrar el fichero %s.\n", nombre_archivo);
+void abrir_archivo_resultado_lectura(){
+	if ( (arch_resultado_lectura = fopen(archivo_resultado, "r") ) == NULL){
+    	printf("No se ha podido abrir el archivo %s.\n", archivo_resultado);
+  	}else{
+  		//printf("Archivo abierto %s.\n", archivo_resultado);
+  	}
+}
+
+void cerrar_archivo_resultado_lectura(){
+	if (fclose(arch_resultado_lectura)!=0) {
+      printf("No se ha podido cerrar el fichero %s.\n", archivo_resultado);
    
     }else{
-    	fclose(itinerario);
-  		printf("Archivo cerrado %s.\n", nombre_archivo);
+    	fclose(arch_resultado_lectura);
+  		//printf("Archivo cerrado %s.\n", archivo_resultado);
   	}
 }
 
@@ -163,7 +181,7 @@ void leer_archivo(){
 
 void guarda_ruta_mejor(char info[], int valor){
 
-    char linea[10];
+	char linea[10];
     strcat(linea, &info[0]);
    	strcat(linea, "-");
    	
@@ -174,23 +192,34 @@ void guarda_ruta_mejor(char info[], int valor){
     strcat(linea, "\n");
     
     fputs(linea, arch_resultado);
-    //fflush(arch_resultado);
-   
+
 }
 
-void lee_resultado(){
-	char linea[10];
-	int nro_linea=0;
-	while (!feof(arch_resultado) || nro_linea > 20 ){
-		fgets(linea,sizeof(linea),arch_resultado);
+int lee_resultado(){
+	char linea[100];
+	//int nro_linea=0;
+
+	abrir_archivo_resultado_lectura();
+
+	while (!feof(arch_resultado_lectura) ){
+		fgets(linea,sizeof(linea),arch_resultado_lectura);
+
+		//char c = fgetc(arch_resultado_lectura);
 		
-		printf("fila %d", nro_linea); 
-		printf("\n");
+		printf("fila %s", linea); 
+		//printf("\n");
 	
 		//carga_matriz(nro_linea, linea);
 
-		nro_linea++;
+		//nro_linea++;
 		
 		//fprintf(stdout , "%s\n\n\n",linea);
 	}
+	char total = linea[2];
+	cerrar_archivo_resultado_lectura();
+	//printf("resultado gurdado %i", (int) total -48); 
+	//printf("\n");
+
+	return (int) total -48;
+	//return total;
 }	

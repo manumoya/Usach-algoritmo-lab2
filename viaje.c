@@ -44,7 +44,8 @@ void backtrack_rutas(int posNodoIni, Pila *pila){
   if (cont_ruta==0){ // no tien adyacencia
 
     printf("\nCalcular ruta y costo \n"); 
-    print_pila(pila);
+    int valor_ruta_guardada = lee_resultado();
+    print_pila(pila, valor_ruta_guardada);
     pop(pila);
     
   }else{
@@ -83,13 +84,9 @@ int main() {
   cerrar_archivo();
 
 
-  abrir_archivo_resultado();
-
-
   push(pila, &primer_nodo[0], 0);
   backtrack_rutas( posicion_nodo( &primer_nodo[0] ), pila);
 
 
-  cerrar_archivo_resultado();
 
 }
