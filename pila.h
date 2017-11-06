@@ -81,12 +81,17 @@ void print_pila(Pila *pila, int valor_ruta_guardada){
   
   while (auxiliar!=NULL) {
     costo_total=costo_total + auxiliar->costo;
+    printf("nombre: %s", auxiliar->nombre);
+      printf(" costo: %d", auxiliar->costo);
+      printf("\n");
     auxiliar = auxiliar->siguiente;
   }
 
+  /*
   printf("costo_total: %i", costo_total);
   printf("valor_ruta_guardada: %i", valor_ruta_guardada);
   printf("\n");
+  */
 
   if (costo_total < valor_ruta_guardada){
        
@@ -98,9 +103,9 @@ void print_pila(Pila *pila, int valor_ruta_guardada){
       //if (costo_total < valor_ruta_guardada){
         guarda_ruta_mejor(auxiliar->nombre,auxiliar->costo);
       //}  
-      printf("nombre: %s", auxiliar->nombre);
-      printf(" costo: %d", auxiliar->costo);
-      printf("\n");
+      //printf("nombre: %s", auxiliar->nombre);
+      //printf(" costo: %d", auxiliar->costo);
+      //printf("\n");
       auxiliar = auxiliar->siguiente;
     }
     

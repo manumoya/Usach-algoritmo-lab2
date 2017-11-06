@@ -206,7 +206,7 @@ int lee_resultado(){
 
 		//char c = fgetc(arch_resultado_lectura);
 		
-		printf("fila %s", linea); 
+		//printf("fila %s", linea); 
 		//printf("\n");
 	
 		//carga_matriz(nro_linea, linea);
