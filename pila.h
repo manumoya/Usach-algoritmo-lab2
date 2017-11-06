@@ -75,13 +75,18 @@ void print_pila(Pila *pila){
   }else{
     //printf("\nMostrando pila completa:\n");
   }  
+  int costo_total=0;
   while (auxiliar!=NULL) {
+    costo_total=costo_total + auxiliar->costo;
+    guarda_ruta_mejor(auxiliar->nombre,auxiliar->costo);
     printf("nombre: %s", auxiliar->nombre);
     printf(" costo: %d", auxiliar->costo);
     printf("\n");
     auxiliar = auxiliar->siguiente;
   }
-  //printf("\n");
+  printf("costo total: %d", costo_total);
+  guarda_ruta_mejor("R",costo_total);
+  printf("\n");
 }
 
 

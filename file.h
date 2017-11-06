@@ -1,12 +1,33 @@
 FILE *itinerario;
+FILE *arch_resultado;
 char nombre_archivo[] = "itinerario.txt";
-//int resultado = EXITO;
+char archivo_resultado[] = "resultado1.txt";
+
 
 void abrir_archivo(){
 	if ( (itinerario = fopen(nombre_archivo, "r") ) == NULL){
     	printf("No se ha podido abrir el archivo %s.\n", nombre_archivo);
   	}else{
   		printf("Archivo abierto %s.\n", nombre_archivo);
+  	}
+}
+
+
+void abrir_archivo_resultado(){
+	if ( (arch_resultado = fopen(archivo_resultado, "wt") ) == NULL){
+    	printf("No se ha podido abrir el archivo %s.\n", archivo_resultado);
+  	}else{
+  		printf("Archivo abierto %s.\n", archivo_resultado);
+  	}
+}
+
+void cerrar_archivo_resultado(){
+	if (fclose(arch_resultado)!=0) {
+      printf("No se ha podido cerrar el fichero %s.\n", archivo_resultado);
+   
+    }else{
+    	fclose(arch_resultado);
+  		printf("Archivo cerrado %s.\n", archivo_resultado);
   	}
 }
 
@@ -19,7 +40,6 @@ void cerrar_archivo(){
   		printf("Archivo cerrado %s.\n", nombre_archivo);
   	}
 }
-
 
 int len_linea(char cadena[]){
     int j=0;
@@ -140,3 +160,37 @@ void leer_archivo(){
 	imprimir_grafo();
 	printf("\n");
 }
+
+void guarda_ruta_mejor(char info[], int valor){
+
+    char linea[10];
+    strcat(linea, &info[0]);
+   	strcat(linea, "-");
+   	
+   	char num_to_char[2];
+	sprintf(num_to_char, "%i", valor);
+
+    strcat(linea, num_to_char);
+    strcat(linea, "\n");
+    
+    fputs(linea, arch_resultado);
+    //fflush(arch_resultado);
+   
+}
+
+void lee_resultado(){
+	char linea[10];
+	int nro_linea=0;
+	while (!feof(arch_resultado) || nro_linea > 20 ){
+		fgets(linea,sizeof(linea),arch_resultado);
+		
+		printf("fila %d", nro_linea); 
+		printf("\n");
+	
+		//carga_matriz(nro_linea, linea);
+
+		nro_linea++;
+		
+		//fprintf(stdout , "%s\n\n\n",linea);
+	}
+}	

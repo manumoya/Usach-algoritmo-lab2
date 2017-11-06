@@ -1,10 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "pila.h"
 
 #include "matriz.h"
 #include "file.h"
+#include "pila.h"
+
 
 void resetear_rutas(int arrRutas[]){
   int largo_rutas = get_largo_matriz();
@@ -82,7 +83,13 @@ int main() {
   cerrar_archivo();
 
 
+  abrir_archivo_resultado();
+
+
   push(pila, &primer_nodo[0], 0);
   backtrack_rutas( posicion_nodo( &primer_nodo[0] ), pila);
+
+
+  cerrar_archivo_resultado();
 
 }
