@@ -53,32 +53,15 @@ void backtrack_rutas(int posNodoIni, Pila *pila){
         char nombre_nodo = matriz_grafo_din[nuevas_rutas[i]][0];
         int costo_nodo =matriz_grafo_din[posNodoIni][nuevas_rutas[i]];
 
-        //printf("nombre_nodo %s ", &nombre_nodo); 
-        //printf(" pila->inicio->nombre %s ", pila->inicio->nombre); 
-        //printf(" nodo_existe_en_pila %d ", nodo_existe_en_pila(pila, &nombre_nodo)); 
-        //printf("\n"); 
 
         if (&nombre_nodo != pila->inicio->nombre){
-        //if (nodo_existe_en_pila(pila, &nombre_nodo)==0){
-
-          //printf("backtrack_rutas recursivo %s", &nombre_nodo);  
-          //printf("\n");
           
           push(pila, &nombre_nodo, costo_nodo);
           backtrack_rutas(nuevas_rutas[i], pila);
         
-        }else{
+        }/*else{
           printf("q pasa acá??? \n"); 
-          //print_pila(pila);
-          //push(marca, &nombre_nodo, costo_nodo);
-
-          /*char nombre_nodo_orig = matriz_grafo_din[posNodoIni][0]; 
-          printf("nombre_nodo %s ", &nombre_nodo);
-          printf(" nombre_nodo original %s ", &nombre_nodo_orig);
-          printf("\n"); 
-          */
-            
-        }
+        }*/
       }
     }
     pop(pila);
@@ -94,23 +77,12 @@ int main() {
     return -1;
   inicializa(pila);
 
-  /*
-  Pila_Marca *marca;
-  if ((marca = (Pila_Marca *) malloc (sizeof (Pila_Marca))) == NULL) 
-    return -1;
-  inicializa(marca);
-  */
-
-
   abrir_archivo();
   leer_archivo();
   cerrar_archivo();
 
 
   push(pila, &primer_nodo[0], 0);
-  //push(marca, &primer_nodo[0], "");
-
   backtrack_rutas( posicion_nodo( &primer_nodo[0] ), pila);
-
 
 }

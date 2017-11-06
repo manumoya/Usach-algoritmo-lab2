@@ -85,33 +85,6 @@ void print_pila(Pila *pila){
 }
 
 
-/* ver si existe nodo */
-/*
-int nodo_existe_en_pila(Pila *pila, char nodo[]){
-  Nodo *auxiliar;
-  auxiliar = pila->inicio;
-  //printf("\nMostrando pila completa:\n");
-  if (auxiliar==NULL) printf( "\nLa lista está vacía!!\n" );
-  int validacion=0;
-  int cont_pila=0;
-  while (auxiliar!=NULL && validacion==0) {
-    
-    //printf("nombre: %s", auxiliar->nombre);
-    //printf(" costo: %d", auxiliar->costo);
-    //printf("\n");
-    //printf(" nodo inex: %c", nodo[0]);
-    
-    //if (auxiliar->nombre[0]==nodo[0] && cont_pila>1){
-    if (auxiliar->nombre[0]==nodo[0]){
-      validacion=1;
-    }
-    auxiliar = auxiliar->siguiente;
-    cont_pila++;
-  }
-  //printf("\n");
-  return (validacion);
-}
-*/
 
 
 
