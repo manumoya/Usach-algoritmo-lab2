@@ -2,7 +2,7 @@ FILE *itinerario;
 FILE *arch_resultado;
 FILE *arch_resultado_lectura;
 char nombre_archivo[] = "itinerario.txt";
-char archivo_resultado[] = "resultado1.txt";
+char archivo_resultado[] = "resultado.txt";
 
 
 void abrir_archivo(){
