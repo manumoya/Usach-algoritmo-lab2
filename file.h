@@ -77,6 +77,7 @@ int len_linea(char cadena[]){
 }
 
 char get_val_prim_linea(char linea[], char ini_or_nronodo){
+	// D: Decena
 	if ( ini_or_nronodo=='D'){
 		//printf( "largo line : %d \n", len_linea(linea) );
 		if (len_linea(linea)==4){
@@ -85,6 +86,7 @@ char get_val_prim_linea(char linea[], char ini_or_nronodo){
 			return (linea[0]);
 		}
 	}
+	// U: unidad
     if ( ini_or_nronodo=='U'){
 		if (len_linea(linea)==4){
 			return (linea[0]);
@@ -92,6 +94,8 @@ char get_val_prim_linea(char linea[], char ini_or_nronodo){
 			return (linea[1]);
 		}
 	}
+
+	// N: Nodo
     if (ini_or_nronodo=='N'){
     	//printf( "NOD : \n");
     	if (len_linea(linea)==4){
@@ -106,16 +110,21 @@ char get_val_prim_linea(char linea[], char ini_or_nronodo){
 
 char get_val_otras_linea(char linea[], char tipo_valor){
 	
+	// O: origen
 	if ( tipo_valor=='O'){
     	//printf( "Orig : \n");
         return (linea[0]);
     }
+    // D: Detino
     if (tipo_valor=='D'){
         //printf( "Dest : \n");
     	return (linea[2]);
     }
+    // C: Costo
     if (tipo_valor=='C'){
         //printf( "Cos : \n");
+
+    	printf("largo linea %d\n", strlen(linea) );
     	return (linea[4]);
     }
     return(0);
@@ -123,11 +132,15 @@ char get_val_otras_linea(char linea[], char tipo_valor){
 
 int convertir_numero(char decena[], char unidad[]){
 	int unid= (int) unidad[0] -48;
+	//int unid= (int) strtol(&unidad[0], (char **)NULL, 10);
+
 
 	if (decena[0]=='0'){
 		return unid;
 	}else{
 		int dece =(int) decena[0] -48;
+		//int dece =(int) strtol(&decena[0], (char **)NULL, 10);
+
 		return (dece*10+unid);
 	}
 	return(0);
@@ -206,8 +219,8 @@ void guarda_ruta_mejor(char info[], int valor){
     strcat(linea2, "\n");
     
 
-    printf("linea guardada %s", linea2);
-    printf("\n");
+    //printf("linea guardada %s\n", linea2);
+   
 
     fputs(linea2, arch_resultado);
 

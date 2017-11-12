@@ -97,5 +97,8 @@ int main() {
 
   mostrar_mejor_ruta();
 
+  int calculo = (int) strtol("155533333", (char **)NULL, 10);
+
+  printf("calculo %i\n", calculo);
 
 }
