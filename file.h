@@ -223,3 +223,28 @@ int lee_resultado(){
 	return (int) total -48;
 	//return total;
 }	
+
+
+void mostrar_mejor_ruta(){
+	char linea[100]=" ";
+
+	abrir_archivo_resultado_lectura();
+
+	while (!feof(arch_resultado_lectura) ){
+		strcpy(linea," ");
+		fgets(linea,sizeof(linea),arch_resultado_lectura);
+
+		//char c = fgetc(arch_resultado_lectura);
+		if (linea[0] != ' '){
+			printf("fila %s", linea); 
+		}
+		//printf("\n");
+	
+		//carga_matriz(nro_linea, linea);
+
+		//nro_linea++;
+		
+		//fprintf(stdout , "%s\n\n\n",linea);
+	}
+	cerrar_archivo_resultado_lectura();
+}

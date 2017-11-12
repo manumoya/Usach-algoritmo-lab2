@@ -87,6 +87,7 @@ int main() {
   push(pila, &primer_nodo[0], 0);
   backtrack_rutas( posicion_nodo( &primer_nodo[0] ), pila);
 
+  mostrar_mejor_ruta();
 
 
 }

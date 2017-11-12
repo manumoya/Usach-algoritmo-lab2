@@ -82,8 +82,8 @@ void print_pila(Pila *pila, int valor_ruta_guardada){
   while (auxiliar!=NULL) {
     costo_total=costo_total + auxiliar->costo;
     printf("nombre: %s", auxiliar->nombre);
-      printf(" costo: %d", auxiliar->costo);
-      printf("\n");
+    printf(" costo: %d", auxiliar->costo);
+    printf("\n");
     auxiliar = auxiliar->siguiente;
   }
 
