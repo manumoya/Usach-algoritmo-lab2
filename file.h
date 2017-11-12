@@ -239,11 +239,10 @@ int lee_resultado(){
 	int resultado;
 	int largo_linea = strlen(linea);
 	char numero[10]="";
-	printf("largo linea %d\n", largo_linea );
+	//printf("largo linea %d\n", largo_linea );
 	if (largo_linea>4){
 		for (int i=2; i<=largo_linea-2; i++){
 			strcat(numero, &linea[i]);
-			
 		}	
 		resultado= 	(int) strtol(numero, (char **)NULL, 10);
 	}else{
