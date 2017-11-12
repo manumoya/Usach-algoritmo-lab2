@@ -85,11 +85,11 @@ void print_pila(Pila *pila, int valor_ruta_guardada){
     auxiliar = auxiliar->siguiente;
   }
 
-  
+  /*
   printf("costo_total: %i", costo_total);
   printf(" valor_ruta_guardada: %i", valor_ruta_guardada);
   printf("\n");
-  
+  */
 
   if (costo_total < valor_ruta_guardada  || valor_ruta_guardada==0 ){
        

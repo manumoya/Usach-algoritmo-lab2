@@ -46,10 +46,12 @@ void backtrack_rutas(int posNodoIni, Pila *pila){
     printf("\nCalcular ruta y costo \n"); 
 
     int valor_ruta_guardada = lee_resultado();
-    //int valor_ruta_guardada = 9;
-
+    
+    /*
     printf("valor ruta guardada %d", valor_ruta_guardada); 
     printf("\n");
+    */
+
     print_pila(pila, valor_ruta_guardada);
     pop(pila);
     
@@ -93,7 +95,7 @@ int main() {
   push(pila, &primer_nodo[0], 0);
   backtrack_rutas( posicion_nodo( &primer_nodo[0] ), pila);
 
-  //mostrar_mejor_ruta();
+  mostrar_mejor_ruta();
 
 
 }

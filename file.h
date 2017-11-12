@@ -199,7 +199,7 @@ void guarda_ruta_mejor(char info[], int valor){
     strcat(linea2, &info[0]);
    	strcat(linea2, "-");
    	
-   	char num_to_char[2];
+   	char num_to_char[3];
 	sprintf(num_to_char, "%i", valor);
 	
     strcat(linea2, num_to_char);
@@ -234,11 +234,14 @@ int lee_resultado(){
 	return resultado;
 }	
 
-/*
+
 void mostrar_mejor_ruta(){
 	char linea[100]=" ";
 
 	abrir_archivo_resultado_lectura();
+
+	printf("\n");
+	printf("La mejor ruta es: \n");
 
 	while (!feof(arch_resultado_lectura) ){
 		strcpy(linea," ");
@@ -258,5 +261,3 @@ void mostrar_mejor_ruta(){
 	}
 	cerrar_archivo_resultado_lectura();
 }
-
-*/
