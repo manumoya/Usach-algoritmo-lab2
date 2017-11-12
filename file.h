@@ -124,7 +124,7 @@ char get_val_otras_linea(char linea[], char tipo_valor){
     if (tipo_valor=='C'){
         //printf( "Cos : \n");
 
-    	printf("largo linea %d\n", strlen(linea) );
+    	//printf("largo linea %d\n", strlen(linea) );
     	return (linea[4]);
     }
     return(0);
@@ -202,11 +202,12 @@ void leer_archivo(){
 
 void guarda_ruta_mejor(char info[], int valor){
 
-	
+	/*
 	printf("info %c", info[0]);
 	printf(" valor %i", valor);
 	printf("\n");
-
+	*/
+	
 
 	char linea2[10]="";
     strcat(linea2, &info[0]);
@@ -234,17 +235,37 @@ int lee_resultado(){
 		fgets(linea,sizeof(linea),arch_resultado_lectura);
 
 	}
-	char total = linea[2];
-	cerrar_archivo_resultado_lectura();
 
-	int resultado =  (int) total -48;
+	int resultado;
+	int largo_linea = strlen(linea);
+	char numero[10]="";
+	printf("largo linea %d\n", largo_linea );
+	if (largo_linea>4){
+		for (int i=2; i<=largo_linea-2; i++){
+			strcat(numero, &linea[i]);
+			
+		}	
+		resultado= 	(int) strtol(numero, (char **)NULL, 10);
+	}else{
+
+		char total = linea[2];
+		cerrar_archivo_resultado_lectura();
+
+		resultado =  (int) total -48;
 	
-	if (resultado==-48){
-		resultado=0;
+		if (resultado==-48){
+			resultado=0;
+		}
+	
+		//return resultado;
+
 	}
 
-
 	return resultado;
+
+
+
+
 }	
 
 
