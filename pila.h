@@ -74,11 +74,9 @@ void print_pila(Pila *pila, int valor_ruta_guardada){
     printf( "\nLa lista está vacía!!\n" );
   }else{
     //printf("\nMostrando pila completa:\n");
-  }  
+  } 
+
   int costo_total=0;
-  
-  
-  
   while (auxiliar!=NULL) {
     costo_total=costo_total + auxiliar->costo;
     printf("nombre: %s", auxiliar->nombre);
@@ -87,13 +85,13 @@ void print_pila(Pila *pila, int valor_ruta_guardada){
     auxiliar = auxiliar->siguiente;
   }
 
-  /*
+  
   printf("costo_total: %i", costo_total);
-  printf("valor_ruta_guardada: %i", valor_ruta_guardada);
+  printf(" valor_ruta_guardada: %i", valor_ruta_guardada);
   printf("\n");
-  */
+  
 
-  if (costo_total < valor_ruta_guardada){
+  if (costo_total < valor_ruta_guardada  || valor_ruta_guardada==0 ){
        
     abrir_archivo_resultado();
     
@@ -101,7 +99,7 @@ void print_pila(Pila *pila, int valor_ruta_guardada){
     while (auxiliar!=NULL) {
       //costo_total=costo_total + auxiliar->costo;
       //if (costo_total < valor_ruta_guardada){
-        guarda_ruta_mejor(auxiliar->nombre,auxiliar->costo);
+      guarda_ruta_mejor(auxiliar->nombre,auxiliar->costo);
       //}  
       //printf("nombre: %s", auxiliar->nombre);
       //printf(" costo: %d", auxiliar->costo);
@@ -115,8 +113,6 @@ void print_pila(Pila *pila, int valor_ruta_guardada){
     cerrar_archivo_resultado();
   
   }
-  
-
   
 }
 

@@ -181,50 +181,52 @@ void leer_archivo(){
 
 void guarda_ruta_mejor(char info[], int valor){
 
-	char linea[10];
-    strcat(linea, &info[0]);
-   	strcat(linea, "-");
+	
+	printf("info %c", info[0]);
+	printf(" valor %i", valor);
+	printf("\n");
+
+
+	char linea2[10]="";
+    strcat(linea2, &info[0]);
+   	strcat(linea2, "-");
    	
    	char num_to_char[2];
 	sprintf(num_to_char, "%i", valor);
-
-    strcat(linea, num_to_char);
-    strcat(linea, "\n");
+	
+    strcat(linea2, num_to_char);
+    strcat(linea2, "\n");
     
-    fputs(linea, arch_resultado);
+
+    printf("linea guardada %s", linea2);
+    printf("\n");
+
+    fputs(linea2, arch_resultado);
 
 }
 
 int lee_resultado(){
 	char linea[100];
-	//int nro_linea=0;
-
+	
 	abrir_archivo_resultado_lectura();
-
 	while (!feof(arch_resultado_lectura) ){
 		fgets(linea,sizeof(linea),arch_resultado_lectura);
 
-		//char c = fgetc(arch_resultado_lectura);
-		
-		//printf("fila %s", linea); 
-		//printf("\n");
-	
-		//carga_matriz(nro_linea, linea);
-
-		//nro_linea++;
-		
-		//fprintf(stdout , "%s\n\n\n",linea);
 	}
 	char total = linea[2];
 	cerrar_archivo_resultado_lectura();
-	//printf("resultado gurdado %i", (int) total -48); 
-	//printf("\n");
 
-	return (int) total -48;
-	//return total;
+	int resultado =  (int) total -48;
+	
+	if (resultado==-48){
+		resultado=0;
+	}
+
+
+	return resultado;
 }	
 
-
+/*
 void mostrar_mejor_ruta(){
 	char linea[100]=" ";
 
@@ -248,3 +250,5 @@ void mostrar_mejor_ruta(){
 	}
 	cerrar_archivo_resultado_lectura();
 }
+
+*/
