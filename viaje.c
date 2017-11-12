@@ -88,6 +88,7 @@ int main() {
   leer_archivo();
   cerrar_archivo();
 
+  limpiar_archivo_resultado();  
 
   push(pila, &primer_nodo[0], 0);
   backtrack_rutas( posicion_nodo( &primer_nodo[0] ), pila);

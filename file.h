@@ -59,6 +59,14 @@ void cerrar_archivo_resultado_lectura(){
   	}
 }
 
+void limpiar_archivo_resultado(){
+	if ( (arch_resultado = fopen(archivo_resultado, "w") ) == NULL){
+	}else{
+   		fclose(arch_resultado);
+   	}
+}
+
+
 int len_linea(char cadena[]){
     int j=0;
     while (cadena[j] != '\0'){
