@@ -1,6 +1,9 @@
 3 A
-A C 9
-A B 8
+A C 3
+A B 2
 B C 2
 B D 3
 D C 4
+B A 1
+D A 1
+C D 1
