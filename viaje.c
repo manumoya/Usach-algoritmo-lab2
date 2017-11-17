@@ -30,7 +30,7 @@ void backtrack_rutas(int posNodoIni, Pila *pila){
 
   /* guarda todas las adyacencias del nodo*/
   char nom_nodo_ini=matriz_grafo_din[posNodoIni][0];
-  printf("Nombre nodo ini: %c \n", nom_nodo_ini);
+  //printf("Nombre nodo ini: %c \n", nom_nodo_ini);
 
   resetear_rutas(nuevas_rutas);
   int cont_ruta=0;
@@ -44,7 +44,7 @@ void backtrack_rutas(int posNodoIni, Pila *pila){
     int tiene_ciclo = existe_ciclo(pila, &nom_nodo);
 
     if (valor != 0 && tiene_ciclo==0){
-      printf("Nombre nodo: %c \n", nom_nodo); 
+      //printf("Nombre nodo: %c \n", nom_nodo); 
       nuevas_rutas[cont_ruta]=i;
       cont_ruta++;
     }
