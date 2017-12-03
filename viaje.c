@@ -38,7 +38,7 @@ void backtrack_rutas(int posNodoIni, Pila *pila){
     int valor = matriz_grafo_din[posNodoIni][i];
     char nom_nodo=matriz_grafo_din[i][0];
 
-
+    
 
     //char nom_nodo = matriz_grafo_din[0][i];
     int tiene_ciclo = existe_ciclo(pila, &nom_nodo);
